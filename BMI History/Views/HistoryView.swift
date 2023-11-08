@@ -21,7 +21,7 @@ struct HistoryView: View {
                         .font(.title)
                         .bold()
                     Spacer()
-                    Text("BMI SCALE")
+                    Text("Scale")
                         .font(.title2)
                         .foregroundColor(.red)
                 }
@@ -29,7 +29,6 @@ struct HistoryView: View {
             .padding(.top, 8)
         }
     }
-    
 }
 
 #Preview {

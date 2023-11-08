@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct BMIItem: Identifiable {
-    let id     = UUID()
-    let date   : Date
-    let result : Double
+    let id = UUID()
+    let date: Date
+    let result: Double
     
     public func bmiScale() -> String {
         switch result {
