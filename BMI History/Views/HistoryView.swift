@@ -23,7 +23,7 @@ struct HistoryView: View {
                     Spacer()
                     Text("\(forScaleStatus(result:bmi.result))")
                         .font(.title2)
-                        .foregroundColor(forScaleColor(result: bmi.result))
+                        .foregroundColor(bmi.BMIResult.color)
                 }
             }
             .padding(.top, 8)

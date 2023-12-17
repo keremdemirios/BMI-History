@@ -12,7 +12,6 @@ struct CalculatorView: View {
     
     @Binding var weight: Double
     @Binding var height: Double
-    //    @Binding var savedHistories: []
     
     var body: some View {
         VStack {

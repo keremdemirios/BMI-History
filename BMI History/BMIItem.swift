@@ -8,34 +8,57 @@
 import Foundation
 import SwiftUI
 
-struct BMIItem: Identifiable {
+struct BMIItem {
     let id = UUID()
-    let date: Date
-    let result: Double
+    let date : Date?
+    let result : Double
     
-    public func bmiScale() -> String {
+    var BMIResult : BMIType {
         switch result {
         case 0..<18.4:
-            return "Underweight"
-        case 18.5..<24.9:
-            return "Normal"
-        case 24.5..<39.9:
-            return "Overweight"
+            return BMIResults.underweight
+        case 18.4..<24.9:
+            return BMIResults.normal
+        case 24.9..<39.9:
+            return BMIResults.overweight
         default:
-            return "Obese"
+            return BMIResults.obese
+        }
+    }
+}
+
+protocol BMIType {
+    var color : Color {get}
+    var title : String {get}
+}
+
+enum BMIResults {
+    case underweight
+    case normal
+    case overweight
+    case obese
+}
+
+extension BMIResults : BMIType {
+    var color: Color {
+        switch self {
+        case .normal:
+            return .green
+        case .underweight:
+            return .blue
+        case .overweight:
+            return .orange
+        case .obese:
+            return .red
         }
     }
     
-    public func bmiScaleColor() -> Color {
-        switch result {
-        case 0..<18.4:
-            return .blue
-        case 18.5..<24.9:
-            return .green
-        case 24.5..<39.9:
-            return .orange
-        default:
-            return .red
+    var title: String {
+        switch self {
+        case .normal: "Normal"
+        case .obese: "Obese"
+        case .overweight: "Overweight"
+        case .underweight: "Underweight"
         }
     }
 }
